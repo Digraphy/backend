@@ -7,4 +7,5 @@ namespace DigraphyApi.Interfaces;
 public interface IOrderRepository
 {
     Task<ICollection<Order>> GetOrdersAsync(OrderFilters filters);
+    Task<Order?> GetOrderAsync(int orderId);
 }

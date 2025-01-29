@@ -19,4 +19,14 @@ public class OrderController(IOrderService orderService) : Controller
         var ordersDto = ordersResult.Data;
         return Ok(ordersDto);
     }
+    
+    [HttpGet("{orderId}")]
+    [ProducesResponseType(200, Type = typeof(IEnumerable<Title>))]
+    [ProducesResponseType(404)]
+    public async Task<ActionResult<List<TitleDto>>> GetOrder(int orderId)
+    {
+        var orderResult = await orderService.GetOrderAsync(orderId);
+        var titleDto = orderResult.Data;
+        return Ok(titleDto);
+    }
 }
