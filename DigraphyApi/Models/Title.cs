@@ -26,7 +26,7 @@ public class Title
     /// <summary>
     /// Factoids that are required to know prior to this title. Note that this relation doesn't
     /// actually exist in the database, it's just a convience property for accessing the factoids
-    /// via the FactoidsImportance join table. 
+    /// via the FactoidsImportance join table.
     /// </summary>
     public List<Factoid> RequiredFactoids { get; set; } = [];
 
@@ -37,13 +37,13 @@ public class Title
 
     /// <summary>
     /// Orders that contain this title. Note that this relation doesn't actually exist in the
-    /// database, it's just a convience property for accessing the titles via the OrderTitle join 
+    /// database, it's just a convience property for accessing the titles via the OrderTitle join
     /// table.
     /// </summary>
     public List<Order> Orders { get; set; } = [];
 
     /// <summary>
-    /// The indexicies of the title in the different orders. 
+    /// The indexicies of the title in the different orders.
     /// </summary>
     public List<OrderTitle> OrderIndicies { get; set; } = [];
 }

@@ -41,7 +41,7 @@ public class Result<T> : Result
             if (IsFailure)
             {
                 throw new InvalidOperationException("Data is not available for failed results");
-            };
+            }
 
             return _data!;
 

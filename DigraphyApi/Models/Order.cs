@@ -20,7 +20,7 @@ public class Order
     /// <summary>
     /// Titles that are contained in this order. Note that this relation doesn't actually exist in
     /// the database, it's just a convience property for accessing the titles via the OrderTitle
-    /// join table. 
+    /// join table.
     /// </summary>
     public List<Title> Titles { get; set; } = [];
 

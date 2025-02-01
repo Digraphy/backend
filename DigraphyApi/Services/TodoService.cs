@@ -19,7 +19,7 @@ public class TodoService(ITodoRepository todoRepository, IMapper mapper) : ITodo
     public async Task<Result<TodoDto>> GetTodoAsync(int todoId)
     {
         var todo = await todoRepository.GetTodoAsync(todoId);
-        
+
         if (todo == null)
         {
             return Errors.TodoNotFound(todoId);
@@ -31,28 +31,28 @@ public class TodoService(ITodoRepository todoRepository, IMapper mapper) : ITodo
     public async Task<Result<TodoDto>> UpdateTodoAsync(int todoId, CreateTodoDto todoDto)
     {
         var existingTodo = await todoRepository.GetTodoAsync(todoId);
-        
+
         if (existingTodo == null)
         {
             return Errors.TodoNotFound(todoId);
         }
-        
+
         if (!string.IsNullOrEmpty(todoDto.Name))
-        { 
+        {
             existingTodo.Name = todoDto.Name;
         }
-        
+
         var todo = await todoRepository.UpdateTodoAsync(existingTodo);
-        
+
         return mapper.Map<TodoDto>(todo);
     }
 
-    public async Task<Result<TodoDto>> CreateTodoAsync(CreateTodoDto createTodoDto) 
+    public async Task<Result<TodoDto>> CreateTodoAsync(CreateTodoDto createTodoDto)
     {
         var todo = mapper.Map<Todo>(createTodoDto);
-        
+
         await todoRepository.CreateTodoAsync(todo);
-        
+
         return mapper.Map<TodoDto>(todo);
     }
 
